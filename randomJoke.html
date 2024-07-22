@@ -89,45 +89,45 @@
     const buttons = document.querySelectorAll("button");
 
     // =====================================ORIGINAL FUNCTION========================================
-    function getJoke() {
-        const xhrJoke = new XMLHttpRequest;
-        xhrJoke.open("GET", "https://official-joke-api.appspot.com/random_joke");
-        xhrJoke.addEventListener("load", () => {
-            const jokeObj = JSON.parse(xhrJoke.responseText);
-            h2s[0].innerHTML = jokeObj.setup;
-            h2s[1].innerHTML = jokeObj.punchline;
-        });
-        xhrJoke.send();
-    }
-    getJoke();
+    // function getJoke() {
+    //     const xhrJoke = new XMLHttpRequest;
+    //     xhrJoke.open("GET", "https://official-joke-api.appspot.com/random_joke");
+    //     xhrJoke.addEventListener("load", () => {
+    //         const jokeObj = JSON.parse(xhrJoke.responseText);
+    //         h2s[0].innerHTML = jokeObj.setup;
+    //         h2s[1].innerHTML = jokeObj.punchline;
+    //     });
+    //     xhrJoke.send();
+    // }
+    // getJoke();
 
 
     //=======================================PROMISE FUNCTION========================================
-    // const getJoke = async () => {
-    //     try {
-    //         const res = await fetch("https://official-joke-api.appspot.com/random_joke");
-    //         const data = await res.json();
-    //         h2s[0].innerHTML = data.setup;
-    //         h2s[1].innerHTML = data.punchline;
-    //         console.log("Data", data);
-    //     }
-    //     catch (e) {
-    //         console.log("Error!", e)
-    //     }
-    // }
+    const getJoke = async () => {
+        try {
+            const res = await fetch("https://official-joke-api.appspot.com/random_joke");
+            const data = await res.json();
+            h2s[0].innerHTML = data.setup;
+            h2s[1].innerHTML = data.punchline;
+            console.log("Data", data);
+        }
+        catch (e) {
+            console.log("Error!", e)
+        }
+    }
 
-    // getJoke();
+    getJoke();
 
     //=============================================AXIOS============================================
-    axios.get("https://official-joke-api.appspot.com/random_joke")
-        .then((getJoke) => {
-            console.log("Axios Data", getJoke)
-            h2s[0].innerHTML = getJoke.data.setup;
-            h2s[1].innerHTML = getJoke.data.punchline;
-        })
-        .catch((error) => {
-            console.log("Error", error);
-        })
+    // axios.get("https://official-joke-api.appspot.com/random_joke")
+    //     .then((getJoke) => {
+    //         console.log("Axios Data", getJoke)
+    //         h2s[0].innerHTML = getJoke.data.setup;
+    //         h2s[1].innerHTML = getJoke.data.punchline;
+    //     })
+    //     .catch((error) => {
+    //         console.log("Error", error);
+    //     })
 
     //============================================BUTTON EVENTS======================================
     buttons[0].addEventListener("click", () => {
