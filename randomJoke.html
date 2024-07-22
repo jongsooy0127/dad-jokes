@@ -89,17 +89,17 @@
     const buttons = document.querySelectorAll("button");
 
     // =====================================ORIGINAL FUNCTION========================================
-    // function getJoke() {
-    //     const xhrJoke = new XMLHttpRequest;
-    //     xhrJoke.open("GET", "https://official-joke-api.appspot.com/random_joke");
-    //     xhrJoke.addEventListener("load", () => {
-    //         const jokeObj = JSON.parse(xhrJoke.responseText);
-    //         h2s[0].innerHTML = jokeObj.setup;
-    //         h2s[1].innerHTML = jokeObj.punchline;
-    //     });
-    //     xhrJoke.send();
-    // }
-    // getJoke();
+    function getJoke() {
+        const xhrJoke = new XMLHttpRequest;
+        xhrJoke.open("GET", "https://official-joke-api.appspot.com/random_joke");
+        xhrJoke.addEventListener("load", () => {
+            const jokeObj = JSON.parse(xhrJoke.responseText);
+            h2s[0].innerHTML = jokeObj.setup;
+            h2s[1].innerHTML = jokeObj.punchline;
+        });
+        xhrJoke.send();
+    }
+    getJoke();
 
 
     //=======================================PROMISE FUNCTION========================================
